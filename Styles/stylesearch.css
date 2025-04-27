@@ -168,3 +168,25 @@ section {
     top: 20vh;
     left: 30vw;
 }
+#movie{
+  margin: 0 -18vw;
+  width: 70vw;
+  height: 500px;
+  background-color: #333;
+  border-radius: 15px;
+  display: none;
+  direction: rtl;
+  position: relative;
+}
+#movie img{
+  position: absolute;
+  left: 0;
+  width: 200px;
+  height: 300px;
+  padding: 15px;
+border: 1px solid wheat;
+}
+#movie span{
+  color: white;
+  padding: 15px;
+}
