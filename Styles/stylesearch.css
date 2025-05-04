@@ -171,7 +171,7 @@ section {
 #movie{
   margin: 0 -18vw;
   width: 70vw;
-  height: 500px;
+  height: auto;
   background-color: #333;
   border-radius: 15px;
   display: none;
@@ -181,12 +181,27 @@ section {
 #movie img{
   position: absolute;
   left: 0;
-  width: 200px;
+  width: 20%;
   height: 300px;
+  
   padding: 15px;
-border: 1px solid wheat;
+border: 1px solid transparent;
 }
-#movie span{
+#movie .movieDetails{
+  direction: ltr;
+  width: 80%;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
   color: white;
   padding: 15px;
+}
+#movie table{
+  width: 100%;
+}
+#movie  table tr{
+  height: 25px;
+}
+#movie  table td{
+  height: 25px;
 }
