@@ -10,6 +10,8 @@ body{
     color: white;
     line-height: 1.6;
     overflow-x: hidden;
+    background: #27404a;
+    background: radial-gradient(circle, rgba(39, 64, 74, 1) 55%, rgba(120, 62, 62, 1) 100%, rgba(66, 40, 40, 1) 81%, rgba(237, 221, 83, 1) 100%);
     }
     
 header{
@@ -138,7 +140,7 @@ nav ul li:hover{
     display: flex;
     flex-flow: column;
     position: absolute;
-    top: 50%;
+    top: 25%;
     left: 50%;
     transform: translate(-11%);
     width: 2500px;
@@ -161,14 +163,15 @@ nav ul li:hover{
 }
 section {
     width: 700px;
-    height: 500px;
+    height: 250px;
     background-color: #333;
-    border-radius: 5%;
+    border-radius: 15px;
     position: relative;
-    top: 20vh;
+    top: 15vh;
     left: 30vw;
 }
 #movie{
+  top: 100px;
   margin: 0 -18vw;
   width: 70vw;
   height: auto;
@@ -182,10 +185,9 @@ section {
   position: absolute;
   left: 0;
   width: 20%;
-  height: 300px;
-  
+  max-height: 100%;
   padding: 15px;
-border: 1px solid transparent;
+  border: 1px solid transparent;
 }
 #movie .movieDetails{
   direction: ltr;
@@ -204,4 +206,5 @@ border: 1px solid transparent;
 }
 #movie  table td{
   height: 25px;
+  padding: 15px 25px;
 }
