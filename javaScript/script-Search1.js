@@ -45,6 +45,49 @@ const emptyEntered = ()=>{
     document.querySelector("#year").value="";
 }
 
+let selectedStarId = null;
+
+const writeRatedStar = (event)=>{
+    console.log("Rated: ",event);
+}
+
+const starSelectHandler =  (event)=>{
+    let star = event.target.id;
+    let starID = star.replace(/\D/g, '');
+    console.log(starID);
+
+    for (let i=1 ; i <= parseInt(starID,10) ; i++){
+        const starEl = document.querySelector(`#star${i}`);
+        if (starEl) {
+            starEl.style.color = "yellow";
+        }
+    };
+    selectedStarId = star;
+    const registerRating = document.querySelector("#registerRating");
+    const cancelRating = document.querySelector("#cancelRating");
+
+    registerRating.addEventListener("click",() => writeRatedStar(selectedStarId));
+
+    cancelRating.addEventListener("click",()=>{
+        selectedStarId = null;
+        for (let i=1 ; i <= 5 ; i++){
+            const starEl = document.querySelector(`#star${i}`);
+            if (starEl) {
+                starEl.style.color = "white";
+            }
+        }
+    });
+    return selectedStarId;
+};
+
+const starRateHandler =  ()=>{
+    let selectStars = document.querySelectorAll(".fa-star");
+    selectStars.forEach( (star) => {
+        return star.addEventListener("mouseover", starSelectHandler);
+    });
+    
+};
+
 
 const searchHandler=async ()=>{
     if(!document.querySelector("#name").value){
@@ -68,7 +111,8 @@ const searchHandler=async ()=>{
             document.querySelector('#plot').innerText= `${currentData.Plot}`;
             const Ratings = currentData.Ratings;
             document.querySelector('#ratings').innerHTML= await rateSource(Ratings);
-            emptyEntered()
+            emptyEntered();
+            
         }else{
             console.log("not working")
         };
@@ -76,6 +120,13 @@ const searchHandler=async ()=>{
         return currentData
     }
 }
-document.querySelector("#search").addEventListener('click', searchHandler)
+document.querySelector("#search").addEventListener('click', searchHandler);
+
+if(selectedStarId==null){
+    starRateHandler();
+}
+else{
+    console.log("already Rated");
+}
 
 

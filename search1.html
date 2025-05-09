@@ -17,6 +17,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=EB+Gar
         amond:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./Styles/fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/all.min.css">
     </head>
 <body>
     <header>
@@ -41,26 +42,38 @@
                 <input type="text" id="name" value="" placeholder="name of the movie">
                 <input type="text" id="year" value="" placeholder="year of the movie">
                 <button id="search">Search</button>
-                <div id="movie">
-                    <img src="" alt="">
-                    <div class="movieDetails">
-                        <table>
-                            <tr>
-                                <td><h2 id="movieName"></h2></td>
-                                <td><h2 id="releaseDate"></h2></td>
-                                <td><h2 id="rate"></h2></td>
-                            </tr>
-                            <tr>
-                                <td><h3 id="actors"></h3></td>
-                                <td><h3 id="awards"></h3></td>
-                                <td><h3 id="country"></h3></td>
-                            </tr>
-                            <tr>
-                                <td ><h3 id="plot"></h3></td>
-                                <td ><h3 id="ratings"></h3></td>
-                            </tr>
-                        </table>
-                    </div>
+            </div>
+            <div id="movie">
+                <img src="" alt="">
+                <div class="movieDetails">
+                    <table>
+                        <tr>
+                            <td><h2 id="movieName"></h2></td>
+                            <td><h2 id="releaseDate"></h2></td>
+                            <td><h2 id="rate"></h2></td>
+                        </tr>
+                        <tr>
+                            <td><h3 id="actors"></h3></td>
+                            <td><h3 id="awards"></h3></td>
+                            <td><h3 id="country"></h3></td>
+                        </tr>
+                        <tr>
+                            <td ><h3 id="plot"></h3></td>
+                            <td ><h3 id="ratings"></h3></td>
+                        </tr>
+                        <tr id="starRow">
+                            <td class="starHolder">
+                                <i class="fa-regular fa-star" id="star1"></i>
+                                <i class="fa-regular fa-star" id="star2"></i>
+                                <i class="fa-regular fa-star" id="star3"></i>
+                                <i class="fa-regular fa-star" id="star4"></i>
+                                <i class="fa-regular fa-star" id="star5"></i>
+                            
+                            </td>
+                            <td><button id="registerRating">register</button></td>
+                            <td><button id="cancelRating">cancel</button></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </section>
