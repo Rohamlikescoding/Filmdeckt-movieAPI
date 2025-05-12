@@ -53,23 +53,28 @@ const writeRatedStar = (event)=>{
 
 const starSelectHandler =  (event)=>{
     let star = event.target.id;
-    let starID = star.replace(/\D/g, '');
+    // let starID = star.replace(/\D/g, '');
+    let starHolder = document.querySelector(".starHolder").children.length;
+    console.log(starHolder);
+    const starID = parseInt(star.replace(/\D/g, ''), 10);
+    const stars = document.querySelector(".starHolder").children;
     console.log(starID);
-
-    for (let i=1 ; i <= parseInt(starID,10) ; i++){
-        const starEl = document.querySelector(`#star${i}`);
-        if (starEl) {
-            starEl.style.color = "yellow";
+    for (let i = 0; i < stars.length; i++) {
+        if (i < starID) {
+            stars[i].style.color = "yellow";
+        } else {
+            stars[i].style.color = "white";
         }
-    };
+    }
     selectedStarId = star;
     const registerRating = document.querySelector("#registerRating");
     const cancelRating = document.querySelector("#cancelRating");
-
+    registerRating.innerHTML=`<p>${starID} stars</p>`
     registerRating.addEventListener("click",() => writeRatedStar(selectedStarId));
 
     cancelRating.addEventListener("click",()=>{
         selectedStarId = null;
+        registerRating.innerHTML=`<p>no star selected</p>`
         for (let i=1 ; i <= 5 ; i++){
             const starEl = document.querySelector(`#star${i}`);
             if (starEl) {
@@ -122,7 +127,7 @@ const searchHandler=async ()=>{
 }
 document.querySelector("#search").addEventListener('click', searchHandler);
 
-if(selectedStarId==null){
+if(selectedStarId==null || cancelRating){
     starRateHandler();
 }
 else{
