@@ -45,3 +45,31 @@ nav ul li a{
 nav ul li:hover{
     color: #ff4500;
 }
+.data-Holder{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    background-color: rgba(47, 79, 79, 0.422);
+    /* border: 2px solid #ff4500; */
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.movie{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    width: 40vw;
+    height: auto;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 7.5px;
+    background-color: #333;
+    color: white;
+    border: 1px solid rgba(255, 127, 80, 0.213);
+}
+.yellow{
+    color: yellow;
+}

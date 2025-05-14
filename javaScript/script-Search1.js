@@ -13,6 +13,7 @@ const findMovie =async function (){
     return json;
     
 }
+let movieNameIs = null
 class rate{
     constructor(source, value){
         this.source = source;
@@ -47,18 +48,20 @@ const emptyEntered = ()=>{
 
 let selectedStarId = null;
 
-const writeRatedStar = (event)=>{
+const writeRatedStar =async (event)=>{
     console.log("Rated: ",event);
-}
+    let movieName = await movieNameIs;
+    localStorage.setItem(`${movieName}`,`${event}`)
 
+}
 const starSelectHandler =  (event)=>{
     let star = event.target.id;
     // let starID = star.replace(/\D/g, '');
     let starHolder = document.querySelector(".starHolder").children.length;
-    console.log(starHolder);
+    // console.log(starHolder);
     const starID = parseInt(star.replace(/\D/g, ''), 10);
     const stars = document.querySelector(".starHolder").children;
-    console.log(starID);
+    // console.log(starID);
     for (let i = 0; i < stars.length; i++) {
         if (i < starID) {
             stars[i].style.color = "yellow";
@@ -67,9 +70,13 @@ const starSelectHandler =  (event)=>{
         }
     }
     selectedStarId = star;
+
     const registerRating = document.querySelector("#registerRating");
+
     const cancelRating = document.querySelector("#cancelRating");
-    registerRating.innerHTML=`<p>${starID} stars</p>`
+
+    registerRating.innerHTML=`<p>${starID} stars</p>`;
+
     registerRating.addEventListener("click",() => writeRatedStar(selectedStarId));
 
     cancelRating.addEventListener("click",()=>{
@@ -106,6 +113,7 @@ const searchHandler=async ()=>{
         if(currentData!=undefined){
             console.log("working");
             document.querySelector('#movie').style.display = "flex";
+            movieNameIs = currentData.Title
             document.querySelector('#movieName').innerText= `${currentData.Title}`;
             document.querySelector('#releaseDate').innerText=`${currentData.Year}`;
             document.querySelector('#rate').innerText =`${currentData.Rated}`;
@@ -126,6 +134,7 @@ const searchHandler=async ()=>{
     }
 }
 document.querySelector("#search").addEventListener('click', searchHandler);
+
 
 if(selectedStarId==null || cancelRating){
     starRateHandler();
