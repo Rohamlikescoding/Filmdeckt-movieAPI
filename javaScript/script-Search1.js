@@ -51,7 +51,9 @@ let selectedStarId = null;
 const writeRatedStar =async (event)=>{
     console.log("Rated: ",event);
     let movieName = await movieNameIs;
-    localStorage.setItem(`${movieName}`,`${event}`)
+    const starID = parseInt(event.replace(/\D/g, ''), 10);
+    localStorage.setItem(`${movieName}`,`${event}`);
+    alert(`you rated ${movieName} ${starID} Stars`)
 
 }
 const starSelectHandler =  (event)=>{
