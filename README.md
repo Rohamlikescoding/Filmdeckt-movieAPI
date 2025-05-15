@@ -1,4 +1,4 @@
-the file "search1" is from OMDB API , and "search2" is from TMDB
+the file "search1" is from OMDB API , and "search2" is from TMDB.               
 In the OMDB API Page of this project I have added a rating ability and users can access what they have Rated on Page "Reviews"
 The navbar : 
 Reviews is linked to a page that shows what movies and how many stars you have Rated(same as Your rated Movies button in the first page).
